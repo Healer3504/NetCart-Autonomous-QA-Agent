@@ -1,0 +1,69 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+.venv/
+venv/
+ENV/
+env/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# ChromaDB / Vector Store
+vector_store/
+chroma.sqlite3
+*.sqlite3
+
+# Uploaded Files
+uploaded_docs/*
+uploaded_files/*
+!uploaded_docs/.gitkeep
+!uploaded_files/.gitkeep
+
+# Generated Files
+*.pyc
+*.log
+*.png
+*.jpg
+*.jpeg
+
+# Environment Variables
+.env
+.env.local
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Test Outputs
+test_*.py
+TC-*.py
+screenshots/
