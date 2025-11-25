@@ -1,0 +1,44 @@
+/* frontend/netflix_theme.css */
+:root {
+  --bg:#141414;
+  --card:#1b1b1b;
+  --red:#E50914;
+  --muted:#b3b3b3;
+  --accent:#222;
+}
+
+body {
+  background: var(--bg);
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+}
+
+/* top bar */
+.topbar {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 22px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.2));
+  border-radius:8px;
+  margin-bottom:18px;
+}
+
+.brand { font-weight:700; font-size:20px; }
+.brand-red { color: var(--red); }
+
+.stButton>button {
+  background: var(--red) !important;
+  color: white !important;
+  border-radius: 8px !important;
+  padding: 8px 10px !important;
+  font-weight:600;
+  box-shadow: 0 8px 20px rgba(229,9,20,0.12);
+}
+.stFileUploader>div { background: var(--card) !important; border-radius:8px; padding:8px !important; }
+
+/* inputs */
+input, textarea { background:#0f0f0f !important; color:#fff !important; border:1px solid #252525 !important; border-radius:8px !important; }
+
+/* markdown blocks */
+.stMarkdown { color: #fff !important; }

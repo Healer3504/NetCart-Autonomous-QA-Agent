@@ -1,0 +1,156 @@
+NetCart Checkout - UI/UX Design Guidelines
+
+THEME: Netflix-Inspired Dark Mode
+================================================
+
+COLORS
+------
+Background: #141414 (Netflix dark)
+Primary Text: #ffffff (white)
+Secondary Text: #b3b3b3 (light gray)
+Accent Red: #e50914 (Netflix red)
+Success Green: #46d369
+Error Red: #e50914
+Card Background: #2f2f2f
+Hover State: Lighten by 10%
+
+TYPOGRAPHY
+----------
+Headings: Montserrat (600, 700 weight)
+Body: Roboto (300, 400, 500 weight)
+Logo: "NetCart" - "Net" in white, "Cart" in red (#e50914)
+
+LAYOUT
+------
+Container: Max-width 1200px, centered
+Grid: Two-column layout
+  - Left: Product cards (60% width)
+  - Right: Checkout form (40% width)
+Responsive: Stack vertically on mobile (<768px)
+
+HEADER
+------
+Position: Fixed top
+Background: Gradient from black to transparent
+Logo: Top-left
+View Cart button: Top-right
+Height: 70px
+
+BUTTONS
+-------
+Primary Button Class: .btn-primary
+  - Background: #e50914 (Netflix red)
+  - Text: white
+  - Padding: 12px 24px
+  - Border-radius: 4px
+  - Hover: Darken to #b20710
+  - Font-weight: 500
+
+Add to Cart Button: .btn-add
+  - Background: #0071eb (blue)
+  - Same styling as primary
+  - Hover: Darken to #0056b3
+
+Apply Button: .btn-apply
+  - Smaller size: 8px 16px
+  - Same red color
+
+Pay Now Button: #pay-now
+  - Full width
+  - Larger text: 16px
+  - Height: 48px
+  - Strong red background
+
+PRODUCT CARDS
+-------------
+Class: .product-card
+Background: #2f2f2f
+Border: 1px solid #404040
+Border-radius: 8px
+Padding: 16px
+Hover: Scale 1.02, shadow increase
+
+Product Image: .thumb
+  - Dimensions: 160x90px
+  - Border-radius: 4px
+  - Object-fit: cover
+
+Product Title: .p-title
+  - Font-size: 18px
+  - Font-weight: 600
+  - Color: white
+
+Company Name: .p-company
+  - Font-size: 14px
+  - Color: #b3b3b3
+
+Price: .p-price
+  - Font-size: 20px
+  - Font-weight: 700
+  - Color: #46d369 (green)
+
+FORM FIELDS
+-----------
+Input Fields:
+  - Background: #2f2f2f
+  - Border: 1px solid #404040
+  - Color: white
+  - Padding: 10px
+  - Border-radius: 4px
+  - Focus: Border color #e50914
+
+Input Errors: .input-error
+  - Color: #e50914
+  - Font-size: 14px
+  - Display: below field
+  - Initially: class="hidden"
+
+Radio Buttons: .radio-group
+  - Custom styled
+  - Accent color: #e50914
+  - Label spacing: 8px
+
+CART SECTION
+------------
+Section Class: .checkout
+Background: Slightly lighter (#1f1f1f)
+Border-radius: 8px
+Padding: 24px
+
+Cart Items: #cart-items
+  - Each item in a row
+  - Displays: name, price, quantity
+  - Remove button in red
+
+Summary List: .summary-list
+  - Row display: flex, space-between
+  - Subtotal, Shipping, Total rows
+  - Total row: Larger font, green color
+
+COUPON INPUT
+------------
+Coupon Input: #coupon
+  - Inline with Apply button
+  - Placeholder: "Enter code (e.g. SAVE15)"
+  - Width: 200px
+
+ANIMATIONS
+----------
+Button Hover: transform scale(1.05), 0.2s ease
+Card Hover: transform scale(1.02), 0.3s ease
+Page Load: Fade in, 0.5s
+Error Display: Slide down, 0.2s
+
+ACCESSIBILITY
+-------------
+All inputs: Associated labels
+Error messages: role="alert"
+Cart updates: aria-live="polite"
+Focus visible: 2px solid #e50914 outline
+Keyboard navigation: Full support
+
+RESPONSIVE BREAKPOINTS
+----------------------
+Desktop: > 1024px (full two-column)
+Tablet: 768px - 1024px (adjusted columns)
+Mobile: < 768px (single column stack)

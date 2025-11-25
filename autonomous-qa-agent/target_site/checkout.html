@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NetCart — Checkout</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/netflix.css" />
+
+</head>
+<body>
+  <header class="header">
+    <div class="logo">Net<span class="logo-red">Cart</span></div>
+    <nav class="nav">
+      <button class="btn-primary" id="view-cart">View Cart</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1 class="title"><span class="title-accent">Secure Checkout</span></h1>
+      <p class="subtitle">Fast — Simple — Secure</p>
+    </section>
+
+    <section class="grid">
+      <!-- products list -->
+      <div class="products" aria-label="Products list">
+        <div class="product-card" data-id="p1">
+          <img src="/mnt/data/9ee32998-ee48-4492-93e2-35ecfcb830b8.png" alt="Wireless Earbuds" class="thumb">
+          <div class="meta">
+            <div class="p-title">Wireless Earbuds</div>
+            <div class="p-company">Acme Audio Co.</div>
+            <div class="p-price" data-price="49.99">$49.99</div>
+            <button class="btn-add" data-id="p1">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-card" data-id="p2">
+          <img src="https://via.placeholder.com/160x90" alt="Smart Watch" class="thumb">
+          <div class="meta">
+            <div class="p-title">Smart Watch</div>
+            <div class="p-company">ChronoTech</div>
+            <div class="p-price" data-price="79.99">$79.99</div>
+            <button class="btn-add" data-id="p2">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-card" data-id="p3">
+          <img src="https://via.placeholder.com/160x90" alt="Portable Speaker" class="thumb">
+          <div class="meta">
+            <div class="p-title">Portable Speaker</div>
+            <div class="p-company">SoundWave</div>
+            <div class="p-price" data-price="29.99">$29.99</div>
+            <button class="btn-add" data-id="p3">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- checkout form -->
+      <aside class="checkout" aria-labelledby="cart-heading">
+        <h2 id="cart-heading" class="section-title">Cart</h2>
+
+        <div id="cart-items" class="cart-items" aria-live="polite"></div>
+
+        <div class="cart-summary">
+          <label for="coupon" class="section-sub">Coupon</label>
+          <div class="coupon-row">
+            <input id="coupon" name="coupon" placeholder="Enter code (e.g. SAVE15)" />
+            <button id="apply-coupon" class="btn-primary btn-apply">Apply</button>
+          </div>
+
+          <div class="summary-list">
+            <div class="summary-row">
+              <span>Subtotal:</span>
+              <span id="subtotal">$0.00</span>
+            </div>
+
+            <div class="summary-row">
+              <span>Shipping:</span>
+              <span id="shipping">Free</span>
+            </div>
+
+            <div class="summary-row total">
+              <span>Total:</span>
+              <span id="cart-total">$0.00</span>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="section-title">Shipping details</h3>
+        <form id="checkout-form" class="checkout-form" novalidate>
+          <label for="name">Name</label>
+          <input id="name" name="name" autocomplete="name" />
+
+          <div id="err-name" class="input-error hidden"></div>
+
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" />
+          <div id="err-email" class="input-error hidden"></div>
+
+          <label for="address">Address</label>
+          <textarea id="address" name="address" rows="3"></textarea>
+
+          <div class="radio-group">
+            <div class="radio-item">
+              <input type="radio" id="ship-standard" name="shipping" value="standard" checked />
+              <label for="ship-standard">Standard (Free)</label>
+            </div>
+            <div class="radio-item">
+              <input type="radio" id="ship-express" name="shipping" value="express" />
+              <label for="ship-express">Express ($10)</label>
+            </div>
+          </div>
+
+          <h3 class="section-title">Payment</h3>
+
+          <div class="radio-group payment-group">
+            <div class="radio-item">
+              <input type="radio" id="pay-card" name="payment" value="card" checked />
+              <label for="pay-card">Credit / Debit Card</label>
+            </div>
+            <div class="radio-item">
+              <input type="radio" id="pay-paypal" name="payment" value="paypal" />
+              <label for="pay-paypal">PayPal (Simulated)</label>
+            </div>
+            <div class="radio-item">
+              <input type="radio" id="pay-upi" name="payment" value="upi" />
+              <label for="pay-upi">UPI</label>
+            </div>
+          </div>
+
+          <div id="payment-fields" class="payment-fields">
+            <div class="field-row" id="card-fields">
+              <label for="card-number">Card Number</label>
+              <input id="card-number" name="card-number" inputmode="numeric" placeholder="xxxx xxxx xxxx xxxx" />
+            </div>
+
+            <div class="field-row hidden" id="paypal-note">
+              <label>PayPal</label>
+              <div class="muted">You will be redirected to PayPal (simulated for demo).</div>
+            </div>
+
+            <div class="field-row hidden" id="upi-fields">
+              <label for="upi-id">UPI ID</label>
+              <input id="upi-id" name="upi-id" placeholder="example@upi" />
+              <div class="muted">Enter your UPI ID (demo only).</div>
+            </div>
+          </div>
+
+          <div class="pay-row">
+            <button type="button" id="pay-now" class="btn-primary pay-btn">Pay Now</button>
+          </div>
+
+          <div id="payment-result" class="payment-result hidden" role="status">Payment Successful! ✅</div>
+        </form>
+      </aside>
+    </section>
+  </main>
+
+  <script src="js/validation.js"></script>
+</body>
+</html>

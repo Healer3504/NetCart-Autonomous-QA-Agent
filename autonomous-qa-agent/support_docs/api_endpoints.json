@@ -1,0 +1,134 @@
+{
+  "checkout_api_spec": {
+    "base_url": "/api/v1",
+    "endpoints": [
+      {
+        "path": "/cart/add",
+        "method": "POST",
+        "description": "Add product to shopping cart",
+        "request_body": {
+          "product_id": "string (required) - Product identifier (p1, p2, p3)",
+          "quantity": "integer (optional) - Quantity to add, default: 1"
+        },
+        "response_success": {
+          "status": "success",
+          "cart_items": "array - All items in cart",
+          "subtotal": "number - Cart subtotal",
+          "message": "Product added to cart"
+        },
+        "response_error": {
+          "status": "error",
+          "message": "Invalid product ID"
+        }
+      },
+      {
+        "path": "/cart/items",
+        "method": "GET",
+        "description": "Get all items in current cart",
+        "response": {
+          "items": [
+            {
+              "id": "string",
+              "name": "string",
+              "price": "number",
+              "quantity": "integer"
+            }
+          ],
+          "subtotal": "number"
+        }
+      },
+      {
+        "path": "/coupon/apply",
+        "method": "POST",
+        "description": "Apply discount coupon to cart",
+        "request_body": {
+          "code": "string (required) - Coupon code (SAVE15, WELCOME10)"
+        },
+        "response_success": {
+          "status": "success",
+          "discount_percent": "number - Discount percentage (15 or 10)",
+          "discount_amount": "number - Dollar amount discounted",
+          "new_total": "number - Total after discount",
+          "message": "Coupon applied successfully"
+        },
+        "response_error": {
+          "status": "error",
+          "message": "Invalid coupon code"
+        }
+      },
+      {
+        "path": "/shipping/calculate",
+        "method": "POST",
+        "description": "Calculate shipping cost",
+        "request_body": {
+          "method": "string (required) - 'standard' or 'express'"
+        },
+        "response": {
+          "method": "string",
+          "cost": "number - 0 for standard, 10 for express",
+          "delivery_time": "string"
+        }
+      },
+      {
+        "path": "/checkout/validate",
+        "method": "POST",
+        "description": "Validate checkout form data",
+        "request_body": {
+          "name": "string",
+          "email": "string",
+          "address": "string",
+          "shipping_method": "string",
+          "payment_method": "string"
+        },
+        "response_success": {
+          "valid": true,
+          "message": "All fields valid"
+        },
+        "response_error": {
+          "valid": false,
+          "errors": {
+            "name": "Name must be at least 2 characters",
+            "email": "Invalid email format",
+            "address": "Address must be at least 10 characters"
+          }
+        }
+      },
+      {
+        "path": "/payment/process",
+        "method": "POST",
+        "description": "Process payment and complete order",
+        "request_body": {
+          "customer_name": "string",
+          "customer_email": "string",
+          "shipping_address": "string",
+          "shipping_method": "string (standard|express)",
+          "payment_method": "string (card|paypal|upi)",
+          "payment_details": "object - Method-specific payment info",
+          "cart_items": "array - Items being purchased",
+          "total_amount": "number"
+        },
+        "response_success": {
+          "status": "success",
+          "order_id": "string - Unique order identifier",
+          "transaction_id": "string",
+          "total_paid": "number",
+          "message": "Payment Successful! ✅"
+        },
+        "response_error": {
+          "status": "error",
+          "error_code": "string",
+          "message": "Payment processing failed"
+        }
+      }
+    ],
+    "validation_rules": {
+      "email_regex": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+      "name_min_length": 2,
+      "name_max_length": 50,
+      "address_min_length": 10,
+      "card_number_length": 16,
+      "supported_payment_methods": ["card", "paypal", "upi"],
+      "supported_shipping_methods": ["standard", "express"]
+    }
+  }
+}
