@@ -1,0 +1,31 @@
+## 1. Document Upload 
+- Show uploading `product_specs.md`
+- Show uploading `ui_ux_guide.txt`
+- Show uploading `api_endpoints.json`
+- Explain what each document contains
+
+### 2. Building Knowledge Base 
+- Click "Build KB" button
+- Show confirmation message
+- Explain vector database creation
+
+### 3. Generating Test Cases 
+- Enter prompt: "Generate test cases for discount coupon feature"
+- Show generated test cases in proper format
+- Highlight "Grounded_In" field showing source document
+- Point out actual HTML selectors used
+- Try another prompt for shipping or payment tests
+
+### 4. Selecting Test Case 
+- Choose one generated test case
+- Explain the test scenario and steps
+
+### 5. Generating Selenium Script 
+- Click "Generate Selenium Script"
+- Download the Python file
+- Open in editor to show:
+  - Clean code structure
+  - Actual selectors from checkout.html
+  - Error handling
+  - Logging capabilities
+- (Optional) Run the script and show execution
